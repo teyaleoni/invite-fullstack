@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { notgoing } from '../actions/people'
+import { Link } from 'react-router-dom'
+import '../styles/notgoing.css'
 
 
 class NotGoing extends Component {
@@ -21,6 +23,7 @@ class NotGoing extends Component {
         return (
             <div>
                 {showNotGoing}
+                <Link to = "/"><div>Home</div></Link>
             </div>
         )
     }

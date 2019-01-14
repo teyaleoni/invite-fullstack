@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { makeACall, changeStatus } from '../actions/people'
+import { Link } from 'react-router-dom'
+import '../styles/home.css'
+import 'font-awesome/css/font-awesome.css'
 
 class Home extends Component {
   componentDidMount() {
@@ -19,19 +22,24 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Home</h1>
-          <div>
-            <ul>
-              <li><img src = {this.props.people.picture} /></li>
-              <li>{this.props.people.fname} {this.props.people.lname}</li>
-              <li>{this.props.people.email}</li>
-              <li>{this.props.people.phone}</li>
-            </ul>
-            <button onClick={this.going}>Going</button>
-            <button onClick={this.notgoing}>Not Going</button>
+      <div className = "homeContainer">
+        <div className = "links">
+          <Link to = "./Going"><p className="link">Going </p></Link>
+          <Link to = "./NotGoing"><p className="link">Not Going</p></Link>
+        </div>
+        <div className="picture"><img src = {this.props.people.picture} /></div>
 
-          </div>
+            <div className = "content">
+              <ul>
+                <li>Name: {this.props.people.fname} {this.props.people.lname}</li>
+                <li>Email: {this.props.people.email}</li>
+                <li>Phone: {this.props.people.phone}</li>
+              </ul>
+                <div class="buttons">
+                  <button onClick={this.going} className="butt" id="red"><i class="fa fa-times"></i></button>
+                  <button onClick={this.notgoing} className="butt" id="green"><i class="fa fa-check"></i></button>
+                </div>
+            </div>
       </div>
     )
   }
